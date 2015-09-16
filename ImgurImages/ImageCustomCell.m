@@ -10,4 +10,19 @@
 
 @implementation ImageCustomCell
 
+
+-(void)awakeFromNib{
+
+    //background color
+    UIView *bgView =[[UIView alloc] initWithFrame:self.bounds];
+    self.backgroundView =bgView;
+    self.backgroundView.backgroundColor = [UIColor redColor];
+
+    //selected background color
+
+    //    UIView *selectedView =[[UIView alloc] initWithFrame:self.bounds];
+    //    self.backgroundView =selectedView;
+    //    self.backgroundView.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"square.png"]];
+}
+
 @end

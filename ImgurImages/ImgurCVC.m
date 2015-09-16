@@ -1,18 +1,19 @@
 //
-//  ImgurGridCVCCollectionViewController.m
-//  
+//  ImgurCVC.m
+//  ImgurImages
 //
-//  Created by Ronald Hernandez on 9/15/15.
-//
+//  Created by Ronald Hernandez on 9/16/15.
+//  Copyright (c) 2015 Hardcoder. All rights reserved.
 //
 
-#import "ImgurGridCVC.h"
+#import "ImgurCVC.h"
+#import "ImageCustomCell.h"
 
-@interface ImgurGridCVC ()
+@interface ImgurCVC ()
 
 @end
 
-@implementation ImgurGridCVC
+@implementation ImgurCVC
 
 static NSString * const reuseIdentifier = @"Cell";
 
@@ -22,9 +23,9 @@ static NSString * const reuseIdentifier = @"Cell";
     // Uncomment the following line to preserve selection between presentations
     // self.clearsSelectionOnViewWillAppear = NO;
     
-    // Register cell classes
-    [self.collectionView registerClass:[UICollectionViewCell class] forCellWithReuseIdentifier:reuseIdentifier];
-    
+//    // Register cell classes
+//    [self.collectionView registerClass:[UICollectionViewCell class] forCellWithReuseIdentifier:reuseIdentifier];
+
     // Do any additional setup after loading the view.
 }
 
@@ -46,18 +47,16 @@ static NSString * const reuseIdentifier = @"Cell";
 #pragma mark <UICollectionViewDataSource>
 
 - (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView {
-#warning Incomplete method implementation -- Return the number of sections
-    return 0;
+    return 1;
 }
 
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
-#warning Incomplete method implementation -- Return the number of items in the section
-    return 0;
+    return 50;
 }
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
-    UICollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:reuseIdentifier forIndexPath:indexPath];
+    ImageCustomCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:reuseIdentifier forIndexPath:indexPath];
     
     // Configure the cell
     
@@ -65,6 +64,22 @@ static NSString * const reuseIdentifier = @"Cell";
 }
 
 #pragma mark <UICollectionViewDelegate>
+
+-(void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath{
+
+    [self.collectionView.collectionViewLayout invalidateLayout];
+    UICollectionViewCell *__weak cell = [self.collectionView cellForItemAtIndexPath:indexPath]; // Avoid retain cycles
+    void (^animateChangeWidth)() = ^()
+    {
+        CGRect frame = cell.frame;
+        frame.size = cell.intrinsicContentSize;
+        cell.frame = frame;
+    };
+
+    // Animate
+
+    [UIView transitionWithView:cell duration:0.1f options: UIViewAnimationOptionCurveLinear animations:animateChangeWidth completion:nil];
+}
 
 /*
 // Uncomment this method to specify if the specified item should be highlighted during tracking

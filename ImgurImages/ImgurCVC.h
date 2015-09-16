@@ -1,5 +1,5 @@
 //
-//  ImageCustomCell.h
+//  ImgurCVC.h
 //  ImgurImages
 //
 //  Created by Ronald Hernandez on 9/16/15.
@@ -8,7 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ImageCustomCell : UICollectionViewCell
-@property (weak, nonatomic) IBOutlet UIImageView *image;
+@interface ImgurCVC : UICollectionViewController
 
 @end

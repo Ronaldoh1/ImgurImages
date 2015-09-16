@@ -14,8 +14,10 @@
 		F24C9C941BA948B6001BCC61 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F24C9C931BA948B6001BCC61 /* Images.xcassets */; };
 		F24C9C971BA948B6001BCC61 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = F24C9C951BA948B6001BCC61 /* LaunchScreen.xib */; };
 		F24C9CA31BA948B6001BCC61 /* ImgurImagesTests.m in Sources */ = {isa = PBXBuildFile; fileRef = F24C9CA21BA948B6001BCC61 /* ImgurImagesTests.m */; };
-		F24C9CAE1BA94ABB001BCC61 /* ImgurGridCVC.m in Sources */ = {isa = PBXBuildFile; fileRef = F24C9CAD1BA94ABB001BCC61 /* ImgurGridCVC.m */; };
 		F24C9CB11BA94B41001BCC61 /* ImageCustomCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F24C9CB01BA94B41001BCC61 /* ImageCustomCell.m */; };
+		F24C9CB51BA952FF001BCC61 /* historyIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = F24C9CB41BA952FF001BCC61 /* historyIcon.png */; };
+		F24C9CB81BA957A5001BCC61 /* ImgurCVC.m in Sources */ = {isa = PBXBuildFile; fileRef = F24C9CB71BA957A5001BCC61 /* ImgurCVC.m */; };
+		F24C9CBC1BA9B444001BCC61 /* Image.m in Sources */ = {isa = PBXBuildFile; fileRef = F24C9CBB1BA9B444001BCC61 /* Image.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -41,10 +43,13 @@
 		F24C9C9C1BA948B6001BCC61 /* ImgurImagesTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ImgurImagesTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		F24C9CA11BA948B6001BCC61 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F24C9CA21BA948B6001BCC61 /* ImgurImagesTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ImgurImagesTests.m; sourceTree = "<group>"; };
-		F24C9CAC1BA94ABB001BCC61 /* ImgurGridCVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImgurGridCVC.h; sourceTree = "<group>"; };
-		F24C9CAD1BA94ABB001BCC61 /* ImgurGridCVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImgurGridCVC.m; sourceTree = "<group>"; };
 		F24C9CAF1BA94B41001BCC61 /* ImageCustomCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImageCustomCell.h; sourceTree = "<group>"; };
 		F24C9CB01BA94B41001BCC61 /* ImageCustomCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImageCustomCell.m; sourceTree = "<group>"; };
+		F24C9CB41BA952FF001BCC61 /* historyIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = historyIcon.png; sourceTree = "<group>"; };
+		F24C9CB61BA957A5001BCC61 /* ImgurCVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImgurCVC.h; sourceTree = "<group>"; };
+		F24C9CB71BA957A5001BCC61 /* ImgurCVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImgurCVC.m; sourceTree = "<group>"; };
+		F24C9CBA1BA9B444001BCC61 /* Image.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Image.h; sourceTree = "<group>"; };
+		F24C9CBB1BA9B444001BCC61 /* Image.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Image.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -88,11 +93,10 @@
 			children = (
 				F24C9C871BA948B6001BCC61 /* AppDelegate.h */,
 				F24C9C881BA948B6001BCC61 /* AppDelegate.m */,
-				F24C9CAC1BA94ABB001BCC61 /* ImgurGridCVC.h */,
-				F24C9CAD1BA94ABB001BCC61 /* ImgurGridCVC.m */,
-				F24C9CAF1BA94B41001BCC61 /* ImageCustomCell.h */,
-				F24C9CB01BA94B41001BCC61 /* ImageCustomCell.m */,
+				F24C9CB91BA9B423001BCC61 /* Data */,
+				F24C9CBD1BA9B452001BCC61 /* DisplayImages  */,
 				F24C9C901BA948B6001BCC61 /* Main.storyboard */,
+				F24C9CB41BA952FF001BCC61 /* historyIcon.png */,
 				F24C9C931BA948B6001BCC61 /* Images.xcassets */,
 				F24C9C951BA948B6001BCC61 /* LaunchScreen.xib */,
 				F24C9C8A1BA948B6001BCC61 /* ImgurImages.xcdatamodeld */,
@@ -125,6 +129,26 @@
 				F24C9CA11BA948B6001BCC61 /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		F24C9CB91BA9B423001BCC61 /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				F24C9CBA1BA9B444001BCC61 /* Image.h */,
+				F24C9CBB1BA9B444001BCC61 /* Image.m */,
+			);
+			name = Data;
+			sourceTree = "<group>";
+		};
+		F24C9CBD1BA9B452001BCC61 /* DisplayImages  */ = {
+			isa = PBXGroup;
+			children = (
+				F24C9CAF1BA94B41001BCC61 /* ImageCustomCell.h */,
+				F24C9CB01BA94B41001BCC61 /* ImageCustomCell.m */,
+				F24C9CB61BA957A5001BCC61 /* ImgurCVC.h */,
+				F24C9CB71BA957A5001BCC61 /* ImgurCVC.m */,
+			);
+			name = "DisplayImages ";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -208,6 +232,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F24C9C921BA948B6001BCC61 /* Main.storyboard in Resources */,
+				F24C9CB51BA952FF001BCC61 /* historyIcon.png in Resources */,
 				F24C9C971BA948B6001BCC61 /* LaunchScreen.xib in Resources */,
 				F24C9C941BA948B6001BCC61 /* Images.xcassets in Resources */,
 			);
@@ -230,8 +255,9 @@
 				F24C9C891BA948B6001BCC61 /* AppDelegate.m in Sources */,
 				F24C9CB11BA94B41001BCC61 /* ImageCustomCell.m in Sources */,
 				F24C9C861BA948B6001BCC61 /* main.m in Sources */,
-				F24C9CAE1BA94ABB001BCC61 /* ImgurGridCVC.m in Sources */,
+				F24C9CBC1BA9B444001BCC61 /* Image.m in Sources */,
 				F24C9C8C1BA948B6001BCC61 /* ImgurImages.xcdatamodeld in Sources */,
+				F24C9CB81BA957A5001BCC61 /* ImgurCVC.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
