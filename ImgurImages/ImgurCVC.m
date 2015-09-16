@@ -8,14 +8,19 @@
 
 #import "ImgurCVC.h"
 #import "ImageCustomCell.h"
+#import "ImageDataDownLoader.h"
 
-@interface ImgurCVC ()
+@interface ImgurCVC ()<ImgurImageDataDownloaderDelegate>
+
+@property NSMutableArray *imageURLsArray;
+@property ImageDataDownLoader *downloader;
 
 @end
 
 @implementation ImgurCVC
 
-static NSString * const reuseIdentifier = @"Cell";
+static NSString const *apiURLString = @"";
+static NSString const *reuseIdentifier = @"Cell";
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -26,23 +31,33 @@ static NSString * const reuseIdentifier = @"Cell";
 //    // Register cell classes
 //    [self.collectionView registerClass:[UICollectionViewCell class] forCellWithReuseIdentifier:reuseIdentifier];
 
-    // Do any additional setup after loading the view.
+    // Do any additional setup after loading the view.i
+
+
+    // hange the Nav Title and set it to white.
+    UILabel *titleView = (UILabel *)self.navigationItem.titleView;
+    titleView = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 50, 30)];
+    titleView.font = [UIFont fontWithName:@"Helvetica Bold" size:22];
+    titleView.text = @"T";
+    titleView.textAlignment = NSTextAlignmentCenter;
+    titleView.textColor = [UIColor redColor];
+    [self.navigationItem setTitleView:titleView];
+
+    //We need to allocate and initiaate our array which will contian the urls of the images.
+
+    self.imageURLsArray = [NSMutableArray new];
+
+    // initialize and allocate the downloader objects.
+    self.downloader = [ImageDataDownLoader new];
+    self.downloader.parentVC = self;
+    [self.downloader downloadImagesWithImgurApi:apiURLString];
+
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
+-(void)gotImageData:(NSArray *)array{
 
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+    NSLog(@"%@", array);
 }
-*/
 
 #pragma mark <UICollectionViewDataSource>
 
