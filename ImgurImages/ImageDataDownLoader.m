@@ -13,15 +13,19 @@
 @implementation ImageDataDownLoader
 
 
--(void)downloadImagesWithImgurApi:(NSString *)apiString{
+-(void)downloadImagesWithImgurApi:(NSString *)apiUrlString{
 
     //1. Create a URL with API String.
 
-    NSURL *url = [NSURL URLWithString:apiString];
+    NSURL *url = [NSURL URLWithString:apiUrlString];
 
     //2. We need to create a Request with the url we created.
 
-    NSURLRequest *request = [NSURLRequest requestWithURL:url];
+    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:url];
+
+    [request setHTTPMethod:@"GET"];
+    [request addValue:@"Client-Id bd3dcc5a4141802" forHTTPHeaderField:@"Authorization"];
+
 
     //3. now that we have the request, we need to get the image data from the Imgur Web Service.
 
@@ -31,7 +35,7 @@
 
         if (data != nil){
 
-            [self processImageData:data];
+        [self processImageData:data];
 
         }else{
 
@@ -46,31 +50,32 @@
 
 }
 
--(void)processData:(NSData *)data{
-
-    //Need to store all of the items in an arary.
-    //We get back a dictionary of dictionary
-    NSDictionary *itemsDictionary = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingAllowFragments error:nil];
-
-    NSMutableArray *tempProductsArray = [NSMutableArray new];
-
-    for (NSDictionary *ProductDict in itemsDictionary) {
-
-        [tempProductsArray addObject:ProductDict];
-
-    }
-
-   // [self.parentVC gotToMoProducts:tempProductsArray];
-    
-}
-
 -(void)processImageData:(NSData *)data{
 
 
     //We need to process the data and store the items in an array.
+    NSDictionary *rawDictionary = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingAllowFragments error:nil];
+
+    //get the dictionary that contain the image informations
+
+    NSDictionary *imageDictionary = [rawDictionary objectForKey:@"data"];
 
 
-    NSLog(@"%@",data);
+    //convert to an array of dictionaries (these dicitonaries contian the image information).
+    //
+    NSMutableArray *tempImageArray = [NSMutableArray new];
+
+
+    for (NSDictionary *imageDict in imageDictionary){
+
+
+        [tempImageArray addObject:imageDict];
+
+    }
+
+    NSLog(@"%@", tempImageArray);
+    [self.parentVC gotImageData:tempImageArray];
+
 
 }
 

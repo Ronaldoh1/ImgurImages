@@ -19,8 +19,8 @@
 
 @implementation ImgurCVC
 
-static NSString const *apiURLString = @"";
-static NSString const *reuseIdentifier = @"Cell";
+static NSString *const apiURLString = @"https://api.imgur.com/3/gallery/random/random/1";
+static NSString *const reuseIdentifier = @"Cell";
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -56,7 +56,9 @@ static NSString const *reuseIdentifier = @"Cell";
 
 -(void)gotImageData:(NSArray *)array{
 
-    NSLog(@"%@", array);
+
+   // NSLog(@"%@", array);
+
 }
 
 #pragma mark <UICollectionViewDataSource>

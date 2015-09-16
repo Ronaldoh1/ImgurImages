@@ -9,5 +9,9 @@
 #import <Foundation/Foundation.h>
 
 @interface Image : NSObject
+@property NSString *imageTitle;
+@property NSString *imageURL;
+
+-(instancetype)initWithDictionary:(NSDictionary *)dictionary;
 
 @end
