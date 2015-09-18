@@ -10,5 +10,17 @@
 
 @implementation Image
 
+-(instancetype)initWithDictionary:(NSDictionary *)dictionary{
+
+    self = [super self];
+
+    self.imageTitle = [dictionary objectForKey:@"title"];
+    self.imageURL = [dictionary objectForKey:@"link"];
+    
+
+
+    return self;
+}
+
 
 @end

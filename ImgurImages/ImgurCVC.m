@@ -9,10 +9,11 @@
 #import "ImgurCVC.h"
 #import "ImageCustomCell.h"
 #import "ImageDataDownLoader.h"
+#import "Image.h"
 
 @interface ImgurCVC ()<ImgurImageDataDownloaderDelegate>
 
-@property NSMutableArray *imageURLsArray;
+@property NSMutableArray *imageUrlsArray;
 @property ImageDataDownLoader *downloader;
 
 @end
@@ -45,7 +46,7 @@ static NSString *const reuseIdentifier = @"Cell";
 
     //We need to allocate and initiaate our array which will contian the urls of the images.
 
-    self.imageURLsArray = [NSMutableArray new];
+    self.imageUrlsArray = [NSMutableArray new];
 
     // initialize and allocate the downloader objects.
     self.downloader = [ImageDataDownLoader new];
@@ -56,8 +57,15 @@ static NSString *const reuseIdentifier = @"Cell";
 
 -(void)gotImageData:(NSArray *)array{
 
+    for (NSDictionary *dict in array) {
 
-   // NSLog(@"%@", array);
+
+        Image *image = [[Image alloc] initWithDictionary:dict];
+
+        [self.imageUrlsArray addObject:image];
+    }
+
+    [self.collectionView reloadData];
 
 }
 
@@ -69,11 +77,50 @@ static NSString *const reuseIdentifier = @"Cell";
 
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
-    return 50;
+    return [self.imageUrlsArray count];
 }
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
     ImageCustomCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:reuseIdentifier forIndexPath:indexPath];
+
+    Image *tempImage = (Image *)[self.imageUrlsArray objectAtIndex:indexPath.row];
+
+    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0),
+                   ^{
+                       //get the image url
+
+                       NSURL *imageURL = [NSURL URLWithString:tempImage.imageURL];
+                       NSData *imageData = [NSData dataWithContentsOfURL:imageURL];
+                       UIImage *image = [UIImage imageWithData:imageData];
+
+
+
+
+                       //Set the image for each cell on the main thread.
+                       dispatch_sync(dispatch_get_main_queue(), ^{
+
+                           if(imageData != nil){
+                               cell.image.alpha = 0;
+
+                       //Animate the loading of the image.
+                        [UIView animateWithDuration:0.5 animations:^{
+
+
+
+                            cell.image.alpha = 1.0;
+                            cell.image.image = image;
+
+                        }];
+
+
+                           }
+
+                           
+
+                           
+                       });
+                   });
+
     
     // Configure the cell
     

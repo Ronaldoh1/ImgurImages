@@ -15,7 +15,6 @@
 		F24C9C971BA948B6001BCC61 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = F24C9C951BA948B6001BCC61 /* LaunchScreen.xib */; };
 		F24C9CA31BA948B6001BCC61 /* ImgurImagesTests.m in Sources */ = {isa = PBXBuildFile; fileRef = F24C9CA21BA948B6001BCC61 /* ImgurImagesTests.m */; };
 		F24C9CB11BA94B41001BCC61 /* ImageCustomCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F24C9CB01BA94B41001BCC61 /* ImageCustomCell.m */; };
-		F24C9CB51BA952FF001BCC61 /* historyIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = F24C9CB41BA952FF001BCC61 /* historyIcon.png */; };
 		F24C9CB81BA957A5001BCC61 /* ImgurCVC.m in Sources */ = {isa = PBXBuildFile; fileRef = F24C9CB71BA957A5001BCC61 /* ImgurCVC.m */; };
 		F24C9CBC1BA9B444001BCC61 /* Image.m in Sources */ = {isa = PBXBuildFile; fileRef = F24C9CBB1BA9B444001BCC61 /* Image.m */; };
 		F24C9CC01BA9B4E2001BCC61 /* ImageDataDownLoader.m in Sources */ = {isa = PBXBuildFile; fileRef = F24C9CBF1BA9B4E2001BCC61 /* ImageDataDownLoader.m */; };
@@ -46,7 +45,6 @@
 		F24C9CA21BA948B6001BCC61 /* ImgurImagesTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ImgurImagesTests.m; sourceTree = "<group>"; };
 		F24C9CAF1BA94B41001BCC61 /* ImageCustomCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImageCustomCell.h; sourceTree = "<group>"; };
 		F24C9CB01BA94B41001BCC61 /* ImageCustomCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImageCustomCell.m; sourceTree = "<group>"; };
-		F24C9CB41BA952FF001BCC61 /* historyIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = historyIcon.png; sourceTree = "<group>"; };
 		F24C9CB61BA957A5001BCC61 /* ImgurCVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImgurCVC.h; sourceTree = "<group>"; };
 		F24C9CB71BA957A5001BCC61 /* ImgurCVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImgurCVC.m; sourceTree = "<group>"; };
 		F24C9CBA1BA9B444001BCC61 /* Image.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Image.h; sourceTree = "<group>"; };
@@ -99,7 +97,6 @@
 				F24C9CB91BA9B423001BCC61 /* Data */,
 				F24C9CBD1BA9B452001BCC61 /* DisplayImages  */,
 				F24C9C901BA948B6001BCC61 /* Main.storyboard */,
-				F24C9CB41BA952FF001BCC61 /* historyIcon.png */,
 				F24C9C931BA948B6001BCC61 /* Images.xcassets */,
 				F24C9C951BA948B6001BCC61 /* LaunchScreen.xib */,
 				F24C9C8A1BA948B6001BCC61 /* ImgurImages.xcdatamodeld */,
@@ -237,7 +234,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				F24C9C921BA948B6001BCC61 /* Main.storyboard in Resources */,
-				F24C9CB51BA952FF001BCC61 /* historyIcon.png in Resources */,
 				F24C9C971BA948B6001BCC61 /* LaunchScreen.xib in Resources */,
 				F24C9C941BA948B6001BCC61 /* Images.xcassets in Resources */,
 			);
@@ -458,6 +454,7 @@
 				F24C9CA81BA948B6001BCC61 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		F24C9CA91BA948B6001BCC61 /* Build configuration list for PBXNativeTarget "ImgurImagesTests" */ = {
 			isa = XCConfigurationList;
@@ -466,6 +463,7 @@
 				F24C9CAB1BA948B6001BCC61 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 

@@ -16,7 +16,7 @@
     //background color
     UIView *bgView =[[UIView alloc] initWithFrame:self.bounds];
     self.backgroundView =bgView;
-    self.backgroundView.backgroundColor = [UIColor redColor];
+    self.backgroundView.backgroundColor = [UIColor whiteColor];
 
     //selected background color
 
