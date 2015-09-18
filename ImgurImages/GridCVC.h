@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ImgurCVC : UICollectionViewController
+@interface GridCVC : UICollectionViewController
 
 @end

@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ImageCustomCell : UICollectionViewCell
+@interface GridImageCustomCell : UICollectionViewCell
 @property (weak, nonatomic) IBOutlet UIImageView *image;
 
 @end

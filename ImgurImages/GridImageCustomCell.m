@@ -6,9 +6,9 @@
 //  Copyright (c) 2015 Hardcoder. All rights reserved.
 //
 
-#import "ImageCustomCell.h"
+#import "GridImageCustomCell.h"
 
-@implementation ImageCustomCell
+@implementation GridImageCustomCell
 
 
 -(void)awakeFromNib{

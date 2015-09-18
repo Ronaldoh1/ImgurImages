@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		F23EBE711BAC155B00F61D85 /* FullScreenImageCVC.m in Sources */ = {isa = PBXBuildFile; fileRef = F23EBE701BAC155B00F61D85 /* FullScreenImageCVC.m */; settings = {ASSET_TAGS = (); }; };
+		F23EBE741BAC165900F61D85 /* FullScreenCustomCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F23EBE731BAC165900F61D85 /* FullScreenCustomCell.m */; settings = {ASSET_TAGS = (); }; };
 		F24C9C861BA948B6001BCC61 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = F24C9C851BA948B6001BCC61 /* main.m */; };
 		F24C9C891BA948B6001BCC61 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = F24C9C881BA948B6001BCC61 /* AppDelegate.m */; };
 		F24C9C8C1BA948B6001BCC61 /* ImgurImages.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = F24C9C8A1BA948B6001BCC61 /* ImgurImages.xcdatamodeld */; };
@@ -14,8 +16,8 @@
 		F24C9C941BA948B6001BCC61 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F24C9C931BA948B6001BCC61 /* Images.xcassets */; };
 		F24C9C971BA948B6001BCC61 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = F24C9C951BA948B6001BCC61 /* LaunchScreen.xib */; };
 		F24C9CA31BA948B6001BCC61 /* ImgurImagesTests.m in Sources */ = {isa = PBXBuildFile; fileRef = F24C9CA21BA948B6001BCC61 /* ImgurImagesTests.m */; };
-		F24C9CB11BA94B41001BCC61 /* ImageCustomCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F24C9CB01BA94B41001BCC61 /* ImageCustomCell.m */; };
-		F24C9CB81BA957A5001BCC61 /* ImgurCVC.m in Sources */ = {isa = PBXBuildFile; fileRef = F24C9CB71BA957A5001BCC61 /* ImgurCVC.m */; };
+		F24C9CB11BA94B41001BCC61 /* GridImageCustomCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F24C9CB01BA94B41001BCC61 /* GridImageCustomCell.m */; };
+		F24C9CB81BA957A5001BCC61 /* GridCVC.m in Sources */ = {isa = PBXBuildFile; fileRef = F24C9CB71BA957A5001BCC61 /* GridCVC.m */; };
 		F24C9CBC1BA9B444001BCC61 /* Image.m in Sources */ = {isa = PBXBuildFile; fileRef = F24C9CBB1BA9B444001BCC61 /* Image.m */; };
 		F24C9CC01BA9B4E2001BCC61 /* ImageDataDownLoader.m in Sources */ = {isa = PBXBuildFile; fileRef = F24C9CBF1BA9B4E2001BCC61 /* ImageDataDownLoader.m */; };
 /* End PBXBuildFile section */
@@ -31,6 +33,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		F23EBE6F1BAC155B00F61D85 /* FullScreenImageCVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FullScreenImageCVC.h; sourceTree = "<group>"; };
+		F23EBE701BAC155B00F61D85 /* FullScreenImageCVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FullScreenImageCVC.m; sourceTree = "<group>"; };
+		F23EBE721BAC165900F61D85 /* FullScreenCustomCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FullScreenCustomCell.h; sourceTree = "<group>"; };
+		F23EBE731BAC165900F61D85 /* FullScreenCustomCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FullScreenCustomCell.m; sourceTree = "<group>"; };
 		F24C9C801BA948B6001BCC61 /* ImgurImages.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ImgurImages.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F24C9C841BA948B6001BCC61 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F24C9C851BA948B6001BCC61 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -43,10 +49,10 @@
 		F24C9C9C1BA948B6001BCC61 /* ImgurImagesTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ImgurImagesTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		F24C9CA11BA948B6001BCC61 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F24C9CA21BA948B6001BCC61 /* ImgurImagesTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ImgurImagesTests.m; sourceTree = "<group>"; };
-		F24C9CAF1BA94B41001BCC61 /* ImageCustomCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImageCustomCell.h; sourceTree = "<group>"; };
-		F24C9CB01BA94B41001BCC61 /* ImageCustomCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImageCustomCell.m; sourceTree = "<group>"; };
-		F24C9CB61BA957A5001BCC61 /* ImgurCVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImgurCVC.h; sourceTree = "<group>"; };
-		F24C9CB71BA957A5001BCC61 /* ImgurCVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImgurCVC.m; sourceTree = "<group>"; };
+		F24C9CAF1BA94B41001BCC61 /* GridImageCustomCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GridImageCustomCell.h; sourceTree = "<group>"; };
+		F24C9CB01BA94B41001BCC61 /* GridImageCustomCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GridImageCustomCell.m; sourceTree = "<group>"; };
+		F24C9CB61BA957A5001BCC61 /* GridCVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GridCVC.h; sourceTree = "<group>"; };
+		F24C9CB71BA957A5001BCC61 /* GridCVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GridCVC.m; sourceTree = "<group>"; };
 		F24C9CBA1BA9B444001BCC61 /* Image.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Image.h; sourceTree = "<group>"; };
 		F24C9CBB1BA9B444001BCC61 /* Image.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Image.m; sourceTree = "<group>"; };
 		F24C9CBE1BA9B4E2001BCC61 /* ImageDataDownLoader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImageDataDownLoader.h; sourceTree = "<group>"; };
@@ -145,10 +151,14 @@
 		F24C9CBD1BA9B452001BCC61 /* DisplayImages  */ = {
 			isa = PBXGroup;
 			children = (
-				F24C9CAF1BA94B41001BCC61 /* ImageCustomCell.h */,
-				F24C9CB01BA94B41001BCC61 /* ImageCustomCell.m */,
-				F24C9CB61BA957A5001BCC61 /* ImgurCVC.h */,
-				F24C9CB71BA957A5001BCC61 /* ImgurCVC.m */,
+				F24C9CAF1BA94B41001BCC61 /* GridImageCustomCell.h */,
+				F24C9CB01BA94B41001BCC61 /* GridImageCustomCell.m */,
+				F24C9CB61BA957A5001BCC61 /* GridCVC.h */,
+				F24C9CB71BA957A5001BCC61 /* GridCVC.m */,
+				F23EBE6F1BAC155B00F61D85 /* FullScreenImageCVC.h */,
+				F23EBE701BAC155B00F61D85 /* FullScreenImageCVC.m */,
+				F23EBE721BAC165900F61D85 /* FullScreenCustomCell.h */,
+				F23EBE731BAC165900F61D85 /* FullScreenCustomCell.m */,
 			);
 			name = "DisplayImages ";
 			sourceTree = "<group>";
@@ -254,12 +264,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				F24C9C891BA948B6001BCC61 /* AppDelegate.m in Sources */,
-				F24C9CB11BA94B41001BCC61 /* ImageCustomCell.m in Sources */,
+				F23EBE711BAC155B00F61D85 /* FullScreenImageCVC.m in Sources */,
+				F24C9CB11BA94B41001BCC61 /* GridImageCustomCell.m in Sources */,
+				F23EBE741BAC165900F61D85 /* FullScreenCustomCell.m in Sources */,
 				F24C9CC01BA9B4E2001BCC61 /* ImageDataDownLoader.m in Sources */,
 				F24C9C861BA948B6001BCC61 /* main.m in Sources */,
 				F24C9CBC1BA9B444001BCC61 /* Image.m in Sources */,
 				F24C9C8C1BA948B6001BCC61 /* ImgurImages.xcdatamodeld in Sources */,
-				F24C9CB81BA957A5001BCC61 /* ImgurCVC.m in Sources */,
+				F24C9CB81BA957A5001BCC61 /* GridCVC.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -73,7 +73,6 @@
 
     }
 
-    NSLog(@"%@", tempImageArray);
     [self.parentVC gotImageData:tempImageArray];
 
 
