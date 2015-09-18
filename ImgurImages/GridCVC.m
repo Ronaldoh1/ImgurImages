@@ -31,8 +31,6 @@ static NSString *const reuseIdentifier = @"Cell";
     [super viewDidLoad];
 
     //based on the number of cells we want to present, use UICollectionViewFlowLayout to properly display them so spacing is fixed for eac screen.
-
-
     UICollectionViewFlowLayout *flowLayout = (UICollectionViewFlowLayout*)self.collectionView.collectionViewLayout;
     CGFloat availableWidthForCells = CGRectGetWidth(self.collectionView.frame) - flowLayout.sectionInset.left - flowLayout.sectionInset.right - flowLayout.minimumInteritemSpacing * (kCellsPerRow - 1);
     CGFloat cellWidth = availableWidthForCells / kCellsPerRow;
@@ -94,12 +92,11 @@ static NSString *const reuseIdentifier = @"Cell";
 
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0),
                    ^{
-                       //get the image url
+                       //get the image url and get data in background 
 
                        NSURL *imageURL = [NSURL URLWithString:tempImage.imageURL];
                        NSData *imageData = [NSData dataWithContentsOfURL:imageURL];
                        UIImage *image = [UIImage imageWithData:imageData];
-
 
 
 

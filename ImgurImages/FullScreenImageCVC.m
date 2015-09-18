@@ -12,16 +12,17 @@
 @interface FullScreenImageCVC ()
 
 @end
-#define kCellsPerRow 1
+
 @implementation FullScreenImageCVC
 
 static NSString * const reuseIdentifier = @"Cell";
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-
+    //Set automaticall Scroll Views Insets to No to manually set it.
     self.automaticallyAdjustsScrollViewInsets = NO;
 
+    //Set the flowlayout
     UICollectionViewFlowLayout *flowLayout = (UICollectionViewFlowLayout*)self.collectionView.collectionViewLayout;
 
     [flowLayout setScrollDirection:UICollectionViewScrollDirectionHorizontal];
@@ -54,13 +55,16 @@ static NSString * const reuseIdentifier = @"Cell";
 }
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
+    //Initialize the cell.
     FullScreenCustomCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:reuseIdentifier forIndexPath:indexPath];
+
+    //get image for current indexPath and populate the cell.
 
     Image *tempImage = (Image *)[self.imageUrlsArray objectAtIndex:indexPath.row];
 
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0),
                    ^{
-                       //get the image url
+                       //get the image url and get data in background
 
                        NSURL *imageURL = [NSURL URLWithString:tempImage.imageURL];
                        NSData *imageData = [NSData dataWithContentsOfURL:imageURL];
@@ -94,8 +98,8 @@ static NSString * const reuseIdentifier = @"Cell";
                        });
                    });
 
-    // hange the Nav Title and set it to white.
-    UILabel *titleView = (UILabel *)self.navigationItem.titleView;
+    // change the Nav Title and set it to red. This will change for every image title.
+   UILabel *titleView = (UILabel *)self.navigationItem.titleView;
     titleView = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 50, 30)];
     titleView.font = [UIFont fontWithName:@"Helvetica Bold" size:20];
     titleView.adjustsFontSizeToFitWidth = YES;
