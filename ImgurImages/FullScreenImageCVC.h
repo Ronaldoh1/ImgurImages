@@ -11,5 +11,6 @@
 @interface FullScreenImageCVC : UICollectionViewController
 
 @property NSMutableArray *imageUrlsArray;
+@property NSIndexPath *indexPath;
 
 @end

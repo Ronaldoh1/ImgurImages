@@ -22,6 +22,7 @@ static NSString * const reuseIdentifier = @"Cell";
     //Set automaticall Scroll Views Insets to No to manually set it.
     self.automaticallyAdjustsScrollViewInsets = NO;
 
+
     //Set the flowlayout
     UICollectionViewFlowLayout *flowLayout = (UICollectionViewFlowLayout*)self.collectionView.collectionViewLayout;
 
@@ -34,6 +35,13 @@ static NSString * const reuseIdentifier = @"Cell";
 
 
 
+}
+
+-(void)viewWillAppear:(BOOL)animated{
+    [super viewWillAppear:YES];
+
+    //[self.view layoutIfNeeded];
+    [self.collectionView scrollToItemAtIndexPath:self.indexPath atScrollPosition:UICollectionViewScrollPositionCenteredHorizontally animated:YES];
 
 }
 #pragma mark - Navigation
@@ -56,7 +64,11 @@ static NSString * const reuseIdentifier = @"Cell";
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
     //Initialize the cell.
-    FullScreenCustomCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:reuseIdentifier forIndexPath:indexPath];
+    FullScreenCustomCell *cell;
+
+
+
+    cell = [collectionView dequeueReusableCellWithReuseIdentifier:reuseIdentifier forIndexPath:indexPath];
 
     //get image for current indexPath and populate the cell.
 
@@ -107,7 +119,7 @@ static NSString * const reuseIdentifier = @"Cell";
     titleView.textAlignment = NSTextAlignmentCenter;
     titleView.textColor = [UIColor redColor];
     [self.navigationItem setTitleView:titleView];
-    
+
     // Configure the cell
     
     return cell;

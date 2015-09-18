@@ -85,6 +85,7 @@ static NSString *const reuseIdentifier = @"Cell";
     return [self.imageUrlsArray count];
 }
 
+
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
     GridImageCustomCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:reuseIdentifier forIndexPath:indexPath];
 
@@ -167,6 +168,10 @@ static NSString *const reuseIdentifier = @"Cell";
     if ([segue.identifier isEqualToString:@"toFullScreen"]) {
 
       destVC.imageUrlsArray = [NSMutableArray arrayWithArray:self.imageUrlsArray.mutableCopy];
+
+        GridImageCustomCell *cell = (GridImageCustomCell *)(sender);
+
+        destVC.indexPath = [self.collectionView indexPathForCell:cell];
 
     }
 
