@@ -46,7 +46,7 @@ static NSString *const reuseIdentifier = @"Cell";
     titleView.font = [UIFont fontWithName:@"Helvetica Bold" size:22];
     titleView.text = @"Random Images";
     titleView.textAlignment = NSTextAlignmentCenter;
-    titleView.textColor = [UIColor darkGrayColor];
+    titleView.textColor = [UIColor redColor];
     [self.navigationItem setTitleView:titleView];
 
     //We need to allocate and initiaate our array which will contian the urls of the images.

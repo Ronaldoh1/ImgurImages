@@ -20,17 +20,21 @@ static NSString * const reuseIdentifier = @"Cell";
 - (void)viewDidLoad {
     [super viewDidLoad];
 
+    self.automaticallyAdjustsScrollViewInsets = NO;
+
     UICollectionViewFlowLayout *flowLayout = (UICollectionViewFlowLayout*)self.collectionView.collectionViewLayout;
-    CGFloat availableWidthForCells = CGRectGetWidth(self.collectionView.frame) - flowLayout.sectionInset.left - flowLayout.sectionInset.right - flowLayout.minimumInteritemSpacing * (kCellsPerRow );
-    CGFloat cellWidth = availableWidthForCells / kCellsPerRow;
-    flowLayout.itemSize = CGSizeMake(cellWidth, flowLayout.itemSize.height);
-}
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
+    [flowLayout setScrollDirection:UICollectionViewScrollDirectionHorizontal];
+    [flowLayout setMinimumInteritemSpacing:0.0f];
+    [flowLayout setMinimumLineSpacing:0.0f];
+    [self.collectionView setPagingEnabled:YES];
+    [flowLayout setItemSize:CGSizeMake(self.view.frame.size.width, self.view.frame.size.height)];
+    [self.collectionView setCollectionViewLayout:flowLayout];
 
+
+
+
+}
 #pragma mark - Navigation
 
 // In a storyboard-based application, you will often want to do a little preparation before navigation
@@ -89,7 +93,16 @@ static NSString * const reuseIdentifier = @"Cell";
                            
                        });
                    });
-    
+
+    // hange the Nav Title and set it to white.
+    UILabel *titleView = (UILabel *)self.navigationItem.titleView;
+    titleView = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 50, 30)];
+    titleView.font = [UIFont fontWithName:@"Helvetica Bold" size:20];
+    titleView.adjustsFontSizeToFitWidth = YES;
+    titleView.text = tempImage.imageTitle;
+    titleView.textAlignment = NSTextAlignmentCenter;
+    titleView.textColor = [UIColor redColor];
+    [self.navigationItem setTitleView:titleView];
     
     // Configure the cell
     

@@ -62,7 +62,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" name="windowFrameColor" catalog="System" colorSpace="catalog"/>
-                        <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="Epu-TX-mrA">
+                        <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="0.0" minimumInteritemSpacing="0.0" id="Epu-TX-mrA">
                             <size key="itemSize" width="320" height="417"/>
                             <size key="headerReferenceSize" width="0.0" height="0.0"/>
                             <size key="footerReferenceSize" width="0.0" height="0.0"/>
@@ -79,15 +79,28 @@
                                         <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="0bb-kj-OQu">
                                             <rect key="frame" x="0.0" y="0.0" width="320" height="417"/>
                                         </imageView>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rFe-jT-qCK">
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="29"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="29" id="MXU-Dt-riZ"/>
+                                            </constraints>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <color key="textColor" red="0.98823529409999999" green="0.36862745099999999" blue="0.0039215686269999999" alpha="1" colorSpace="calibratedRGB"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
                                     </subviews>
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 </view>
                                 <constraints>
-                                    <constraint firstAttribute="bottomMargin" secondItem="0bb-kj-OQu" secondAttribute="bottom" constant="-8" id="Aqw-a2-D9Q"/>
-                                    <constraint firstItem="0bb-kj-OQu" firstAttribute="top" secondItem="JFz-uO-LyB" secondAttribute="topMargin" constant="-8" id="YBh-Ai-Hrr"/>
-                                    <constraint firstItem="0bb-kj-OQu" firstAttribute="leading" secondItem="JFz-uO-LyB" secondAttribute="leadingMargin" constant="-8" id="mPl-iy-ESU"/>
-                                    <constraint firstAttribute="trailingMargin" secondItem="0bb-kj-OQu" secondAttribute="trailing" constant="-8" id="wdI-LF-zjU"/>
+                                    <constraint firstItem="0bb-kj-OQu" firstAttribute="leading" secondItem="JFz-uO-LyB" secondAttribute="leadingMargin" constant="-8" id="I7a-iK-N3m"/>
+                                    <constraint firstAttribute="trailingMargin" secondItem="rFe-jT-qCK" secondAttribute="trailing" constant="-8" id="PYc-4s-aGn"/>
+                                    <constraint firstAttribute="bottomMargin" secondItem="0bb-kj-OQu" secondAttribute="bottom" constant="-8" id="Rop-id-rhl"/>
+                                    <constraint firstItem="rFe-jT-qCK" firstAttribute="top" secondItem="JFz-uO-LyB" secondAttribute="topMargin" constant="-8" id="W7X-JB-Xos"/>
+                                    <constraint firstAttribute="trailingMargin" secondItem="0bb-kj-OQu" secondAttribute="trailing" constant="-8" id="gj9-Ff-hJa"/>
+                                    <constraint firstItem="0bb-kj-OQu" firstAttribute="top" secondItem="JFz-uO-LyB" secondAttribute="topMargin" constant="-8" id="sw5-ih-kRa"/>
+                                    <constraint firstItem="rFe-jT-qCK" firstAttribute="leading" secondItem="JFz-uO-LyB" secondAttribute="leadingMargin" constant="-8" id="ztB-Wd-WgZ"/>
                                 </constraints>
+                                <size key="customSize" width="320" height="417"/>
                                 <connections>
                                     <outlet property="image" destination="0bb-kj-OQu" id="2Iu-Fb-GJ9"/>
                                 </connections>
