@@ -70,6 +70,8 @@ static NSString * const reuseIdentifier = @"Cell";
 
     cell = [collectionView dequeueReusableCellWithReuseIdentifier:reuseIdentifier forIndexPath:indexPath];
 
+    [cell prepareForReuse];
+
     //get image for current indexPath and populate the cell.
 
     Image *tempImage = (Image *)[self.imageUrlsArray objectAtIndex:indexPath.row];

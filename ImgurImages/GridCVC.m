@@ -16,6 +16,7 @@
 
 @property  NSMutableArray *imageUrlsArray;
 @property ImageDataDownLoader *downloader;
+@property NSCache *imageCache;
 
 @end
 
@@ -91,6 +92,11 @@ static NSString *const reuseIdentifier = @"Cell";
 
     Image *tempImage = (Image *)[self.imageUrlsArray objectAtIndex:indexPath.row];
 
+  
+
+        [cell prepareForReuse];
+
+
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0),
                    ^{
                        //get the image url and get data in background 
@@ -98,7 +104,7 @@ static NSString *const reuseIdentifier = @"Cell";
                        NSURL *imageURL = [NSURL URLWithString:tempImage.imageURL];
                        NSData *imageData = [NSData dataWithContentsOfURL:imageURL];
                        UIImage *image = [UIImage imageWithData:imageData];
-
+                      // [self.imageCache setObject:image forKey:indexPath.row];
 
 
                        //Set the image for each cell on the main thread.
@@ -127,7 +133,6 @@ static NSString *const reuseIdentifier = @"Cell";
                    });
 
 
-    // Configure the cell
 
     return cell;
 }

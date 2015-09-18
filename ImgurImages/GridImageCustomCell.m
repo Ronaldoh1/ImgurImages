@@ -24,5 +24,8 @@
     //    self.backgroundView =selectedView;
     //    self.backgroundView.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"square.png"]];
 }
+- (void) prepareForReuse {
+    self.image.image = nil;
 
+}
 @end
