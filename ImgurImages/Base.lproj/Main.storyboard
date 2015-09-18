@@ -6,22 +6,6 @@
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
-        <!--Navigation Controller-->
-        <scene sceneID="8Wi-LW-w3A">
-            <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="4aw-az-2fg" sceneMemberID="viewController">
-                    <toolbarItems/>
-                    <simulatedScreenMetrics key="simulatedDestinationMetrics"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="CuW-FT-qoz">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <nil name="viewControllers"/>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="XLe-JD-GC8" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="332" y="407"/>
-        </scene>
         <!--GridCVC-->
         <scene sceneID="g2F-j3-bal">
             <objects>
@@ -54,6 +38,7 @@
                                 <size key="customSize" width="110" height="110"/>
                                 <connections>
                                     <outlet property="image" destination="QIs-tH-5Vl" id="9GA-VG-9Ca"/>
+                                    <segue destination="AXq-cU-M16" kind="show" identifier="toFullScreen" id="2bJ-ne-cJu"/>
                                 </connections>
                             </collectionViewCell>
                         </cells>
@@ -64,23 +49,20 @@
                     </collectionView>
                     <navigationItem key="navigationItem" id="M9d-u2-ZjL"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics"/>
-                    <connections>
-                        <segue destination="AXq-cU-M16" kind="show" identifier="toFullScreen" id="yYK-hM-8B6"/>
-                    </connections>
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6pi-bt-Kxz" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2175" y="80"/>
         </scene>
-        <!--Collection View Controller-->
+        <!--Full Screen ImageCVC-->
         <scene sceneID="HRc-tA-cPe">
             <objects>
-                <collectionViewController id="AXq-cU-M16" sceneMemberID="viewController">
+                <collectionViewController id="AXq-cU-M16" customClass="FullScreenImageCVC" sceneMemberID="viewController">
                     <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="AEW-4T-jyK">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" name="windowFrameColor" catalog="System" colorSpace="catalog"/>
-                        <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="Epu-TX-mrA">
+                        <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="Epu-TX-mrA">
                             <size key="itemSize" width="320" height="417"/>
                             <size key="headerReferenceSize" width="0.0" height="0.0"/>
                             <size key="footerReferenceSize" width="0.0" height="0.0"/>
@@ -88,23 +70,23 @@
                         </collectionViewFlowLayout>
                         <cells>
                             <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="Cell" id="JFz-uO-LyB" customClass="FullScreenCustomCell">
-                                <rect key="frame" x="0.0" y="64" width="320" height="417"/>
+                                <rect key="frame" x="0.0" y="63" width="320" height="417"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                     <rect key="frame" x="0.0" y="0.0" width="320" height="417"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="0bb-kj-OQu">
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="0bb-kj-OQu">
                                             <rect key="frame" x="0.0" y="0.0" width="320" height="417"/>
                                         </imageView>
                                     </subviews>
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 </view>
                                 <constraints>
-                                    <constraint firstAttribute="trailingMargin" secondItem="0bb-kj-OQu" secondAttribute="trailing" constant="-8" id="1zy-JM-8A3"/>
-                                    <constraint firstItem="0bb-kj-OQu" firstAttribute="top" secondItem="JFz-uO-LyB" secondAttribute="topMargin" constant="-8" id="Fav-pK-QnX"/>
-                                    <constraint firstAttribute="bottomMargin" secondItem="0bb-kj-OQu" secondAttribute="bottom" constant="-8" id="YIw-VJ-Muf"/>
-                                    <constraint firstItem="0bb-kj-OQu" firstAttribute="leading" secondItem="JFz-uO-LyB" secondAttribute="leadingMargin" constant="-8" id="unt-8e-bak"/>
+                                    <constraint firstAttribute="bottomMargin" secondItem="0bb-kj-OQu" secondAttribute="bottom" constant="-8" id="Aqw-a2-D9Q"/>
+                                    <constraint firstItem="0bb-kj-OQu" firstAttribute="top" secondItem="JFz-uO-LyB" secondAttribute="topMargin" constant="-8" id="YBh-Ai-Hrr"/>
+                                    <constraint firstItem="0bb-kj-OQu" firstAttribute="leading" secondItem="JFz-uO-LyB" secondAttribute="leadingMargin" constant="-8" id="mPl-iy-ESU"/>
+                                    <constraint firstAttribute="trailingMargin" secondItem="0bb-kj-OQu" secondAttribute="trailing" constant="-8" id="wdI-LF-zjU"/>
                                 </constraints>
                                 <connections>
                                     <outlet property="image" destination="0bb-kj-OQu" id="2Iu-Fb-GJ9"/>

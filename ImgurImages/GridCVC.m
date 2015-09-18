@@ -10,10 +10,11 @@
 #import "GridImageCustomCell.h"
 #import "ImageDataDownLoader.h"
 #import "Image.h"
+#import "FullScreenImageCVC.h"
 
 @interface GridCVC ()<ImgurImageDataDownloaderDelegate, UICollectionViewDelegateFlowLayout>
 
-@property NSMutableArray *imageUrlsArray;
+@property  NSMutableArray *imageUrlsArray;
 @property ImageDataDownLoader *downloader;
 
 @end
@@ -158,53 +159,25 @@ static NSString *const reuseIdentifier = @"Cell";
             cell.image.frame = CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height);
         }];      
     }];
-//    [self.collectionView.collectionViewLayout invalidateLayout];
-//    UICollectionViewCell *__weak cell = [self.collectionView cellForItemAtIndexPath:indexPath]; // Avoid retain cycles
-//    void (^animateChangeWidth)() = ^()
-//    {
-//        CGRect frame = cell.frame;
-//        frame.size = cell.intrinsicContentSize;
-//        cell.frame = frame;
-//    };
-//
-//    // Animate
-//
-//    [UIView transitionWithView:cell duration:0.1f options: UIViewAnimationOptionCurveLinear animations:animateChangeWidth completion:nil];
+
 }
 
-//-(CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath{
-//
-//#define kCellsPerRow 2
-//
-//
-//}
-/*
- // Uncomment this method to specify if the specified item should be highlighted during tracking
- - (BOOL)collectionView:(UICollectionView *)collectionView shouldHighlightItemAtIndexPath:(NSIndexPath *)indexPath {
-	return YES;
- }
- */
 
-/*
- // Uncomment this method to specify if the specified item should be selected
- - (BOOL)collectionView:(UICollectionView *)collectionView shouldSelectItemAtIndexPath:(NSIndexPath *)indexPath {
- return YES;
- }
- */
+-(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
 
-/*
- // Uncomment these methods to specify if an action menu should be displayed for the specified item, and react to actions performed on the item
- - (BOOL)collectionView:(UICollectionView *)collectionView shouldShowMenuForItemAtIndexPath:(NSIndexPath *)indexPath {
-	return NO;
- }
- 
- - (BOOL)collectionView:(UICollectionView *)collectionView canPerformAction:(SEL)action forItemAtIndexPath:(NSIndexPath *)indexPath withSender:(id)sender {
-	return NO;
- }
- 
- - (void)collectionView:(UICollectionView *)collectionView performAction:(SEL)action forItemAtIndexPath:(NSIndexPath *)indexPath withSender:(id)sender {
-	
- }
- */
+    FullScreenImageCVC *destVC = (FullScreenImageCVC *)segue.destinationViewController;
+
+    if ([segue.identifier isEqualToString:@"toFullScreen"]) {
+
+      destVC.imageUrlsArray = [NSMutableArray arrayWithArray:self.imageUrlsArray.mutableCopy];
+
+    }
+
+
+
+
+
+}
+
 
 @end

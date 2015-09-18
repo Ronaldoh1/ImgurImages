@@ -7,25 +7,23 @@
 //
 
 #import "FullScreenImageCVC.h"
-
+#import "FullScreenCustomCell.h"
+#import "Image.h"
 @interface FullScreenImageCVC ()
 
 @end
-
+#define kCellsPerRow 1
 @implementation FullScreenImageCVC
 
 static NSString * const reuseIdentifier = @"Cell";
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
-    // Uncomment the following line to preserve selection between presentations
-    // self.clearsSelectionOnViewWillAppear = NO;
-    
-    // Register cell classes
-    [self.collectionView registerClass:[UICollectionViewCell class] forCellWithReuseIdentifier:reuseIdentifier];
-    
-    // Do any additional setup after loading the view.
+
+    UICollectionViewFlowLayout *flowLayout = (UICollectionViewFlowLayout*)self.collectionView.collectionViewLayout;
+    CGFloat availableWidthForCells = CGRectGetWidth(self.collectionView.frame) - flowLayout.sectionInset.left - flowLayout.sectionInset.right - flowLayout.minimumInteritemSpacing * (kCellsPerRow );
+    CGFloat cellWidth = availableWidthForCells / kCellsPerRow;
+    flowLayout.itemSize = CGSizeMake(cellWidth, flowLayout.itemSize.height);
 }
 
 - (void)didReceiveMemoryWarning {
@@ -33,15 +31,12 @@ static NSString * const reuseIdentifier = @"Cell";
     // Dispose of any resources that can be recreated.
 }
 
-/*
 #pragma mark - Navigation
 
 // In a storyboard-based application, you will often want to do a little preparation before navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+     
 }
-*/
 
 #pragma mark <UICollectionViewDataSource>
 
@@ -55,7 +50,46 @@ static NSString * const reuseIdentifier = @"Cell";
 }
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
-    UICollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:reuseIdentifier forIndexPath:indexPath];
+    FullScreenCustomCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:reuseIdentifier forIndexPath:indexPath];
+
+    Image *tempImage = (Image *)[self.imageUrlsArray objectAtIndex:indexPath.row];
+
+    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0),
+                   ^{
+                       //get the image url
+
+                       NSURL *imageURL = [NSURL URLWithString:tempImage.imageURL];
+                       NSData *imageData = [NSData dataWithContentsOfURL:imageURL];
+                       UIImage *image = [UIImage imageWithData:imageData];
+
+
+
+
+                       //Set the image for each cell on the main thread.
+                       dispatch_sync(dispatch_get_main_queue(), ^{
+
+                           if(imageData != nil){
+                               cell.image.alpha = 0;
+
+                               //Animate the loading of the image.
+                               [UIView animateWithDuration:0.5 animations:^{
+
+
+
+                                   cell.image.alpha = 1.0;
+                                   cell.image.image = image;
+                                   
+                               }];
+                               
+                               
+                           }
+                           
+                           
+                           
+                           
+                       });
+                   });
+    
     
     // Configure the cell
     
